@@ -1,0 +1,15 @@
+Configs: {
+	Config: {
+		DisplayName: Config
+
+		ShowModSideIcon: {
+			Label: Show Mod Side Icon
+			Tooltip: ""
+		}
+
+		ShowModSideName: {
+			Label: Show Mod Side Name
+			Tooltip: ""
+		}
+	}
+}

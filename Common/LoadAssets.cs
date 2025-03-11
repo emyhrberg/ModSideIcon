@@ -27,6 +27,8 @@ namespace ModSideIcon.Common
         public static Asset<Texture2D> BothIcon;
         public static Asset<Texture2D> ClientIcon;
         public static Asset<Texture2D> ServerIcon;
+        public static Asset<Texture2D> ClientIconNoGlow;
+        public static Asset<Texture2D> ServerIconNoGlow;
 
         // This property just forces the static constructor to run.
         public static bool Initialized { get; } = true;
@@ -47,7 +49,8 @@ namespace ModSideIcon.Common
 
         private static Asset<Texture2D> PreloadAsset(string path)
         {
-            string modName = typeof(Assets).Namespace.Split('.')[0];
+            // string modName = typeof(Assets).Namespace.Split('.')[0];
+            string modName = "ModSideIcon";
             return ModContent.Request<Texture2D>($"{modName}/Assets/{path}", AssetRequestMode.AsyncLoad);
         }
     }

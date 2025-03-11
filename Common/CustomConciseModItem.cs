@@ -63,13 +63,28 @@ namespace ModSideIcon.Common
 
                 if (c.ShowModSideIcon)
                 {
-                    Texture2D sideIcon = sideString switch
+                    Texture2D sideIcon;
+                    if (c.IconGlow)
                     {
-                        "Both" => Assets.ServerIcon.Value,
-                        "Client" => Assets.ClientIcon.Value,
-                        "Server" => Assets.ServerIcon.Value,
-                        _ => null
-                    };
+                        sideIcon = sideString switch
+                        {
+                            "Both" => Assets.ServerIcon.Value,
+                            "Server" => Assets.ServerIcon.Value,
+                            "Client" => Assets.ClientIcon.Value,
+                            _ => null
+                        };
+                    }
+                    else
+                    {
+                        sideIcon = sideString switch
+                        {
+                            "Both" => Assets.ServerIconNoGlow.Value,
+                            "Server" => Assets.ServerIconNoGlow.Value,
+                            "Client" => Assets.ClientIconNoGlow.Value,
+                            _ => null
+                        };
+                    }
+
                     ImageIcon imageIcon = new(sideIcon, sideString);
 
                     // set image position with config

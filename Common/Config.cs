@@ -8,9 +8,18 @@ namespace ModSideIcon.Common
     {
         public override ConfigScope Mode => ConfigScope.ClientSide;
 
+        [Header("Icon")]
         [DefaultValue(true)]
         public bool ShowModSideIcon = true;
 
+        [DefaultValue(true)]
+        public bool IconGlow = true;
+
+        [DefaultValue(typeof(Vector2), "0, 0")]
+        [Increment(0.1f)]
+        public Vector2 IconPosition = new Vector2(0, 0);
+
+        [Header("Text")]
         [DefaultValue(true)]
         public bool ShowModSideName = true;
 
@@ -19,12 +28,10 @@ namespace ModSideIcon.Common
         [Increment(0.1f)]
         public float TextSize = 0.85f;
 
-        [DefaultValue(typeof(Vector2), "0, 0")]
-        [Increment(0.1f)]
-        public Vector2 IconPosition = new Vector2(0, 0);
-
         [DefaultValue(typeof(Vector2), "0.5, 0")]
         [Increment(0.1f)]
         public Vector2 TextPosition = new Vector2(0.5f, 0.0f);
+
+
     }
 }

@@ -104,10 +104,10 @@ namespace ModSideIcon.Common
                 // sideValue is the enum ModSide (Both, Client, Server, NoSync)
                 // Convert to string
                 string sideString = sideValue.ToString(); // e.g. "Both", "Client", etc.
-                if (sideString == "Both")
-                {
-                    sideString = "Server";
-                }
+                                                          // if (sideString == "Both")
+                                                          // {
+                                                          // sideString = "Server";
+                                                          // }
 
                 // Check config
                 Config c = ModContent.GetInstance<Config>();
@@ -142,15 +142,31 @@ namespace ModSideIcon.Common
                 // 5b) Append a UIImage showing the ModSide name
                 if (c.ShowModSideIcon)
                 {
-                    Asset<Texture2D> sideIcon = sideString switch
+                    Texture2D sideIcon;
+                    if (c.IconGlow)
                     {
-                        "Server" => Assets.ServerIcon,
-                        "Client" => Assets.ClientIcon,
-                        _ => null
-                    };
+                        sideIcon = sideString switch
+                        {
+                            "Both" => Assets.ServerIcon.Value,
+                            "Server" => Assets.ServerIcon.Value,
+                            "Client" => Assets.ClientIcon.Value,
+                            _ => null
+                        };
+                    }
+                    else
+                    {
+                        sideIcon = sideString switch
+                        {
+                            "Both" => Assets.ServerIconNoGlow.Value,
+                            "Server" => Assets.ServerIconNoGlow.Value,
+                            "Client" => Assets.ClientIconNoGlow.Value,
+                            _ => null
+                        };
+                    }
+
                     if (sideIcon != null)
                     {
-                        ImageIcon sideButton = new(sideIcon.Value, sideString)
+                        ImageIcon sideButton = new(sideIcon, sideString)
                         {
                             HAlign = 1f,
                             Left = { Pixels = -20 },

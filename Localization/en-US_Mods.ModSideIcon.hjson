@@ -3,22 +3,17 @@ Configs: {
 		DisplayName: Config
 
 		ShowModSideIcon: {
-			Label: Show Mod Side Icon
+			Label: Show Icon
 			Tooltip: ""
 		}
 
 		ShowModSideName: {
-			Label: Show Mod Side Name
+			Label: Show Text
 			Tooltip: ""
 		}
 
 		TextSize: {
 			Label: Text Size
-			Tooltip: ""
-		}
-
-		Position: {
-			Label: Position
 			Tooltip: ""
 		}
 
@@ -31,5 +26,22 @@ Configs: {
 			Label: Text Position
 			Tooltip: ""
 		}
+
+		IconGlow: {
+			Label: Icon Glow
+			Tooltip: ""
+		}
+
+		Headers: {
+			Icon: "[i:ModSideIcon/BothItem] Icon"
+			Text: "[i:AlphabetStatueT][i:AlphabetStatueE][i:AlphabetStatueX][i:AlphabetStatueT] "
+		}
+	}
+}
+
+Items: {
+	BothItem: {
+		DisplayName: Both Item
+		Tooltip: ""
 	}
 }

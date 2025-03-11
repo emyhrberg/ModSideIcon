@@ -1,1 +1,3 @@
-Modify this file with a description of your mod.
+See if a mod is client or server-sided.
+Simple icons in your mods list make it clear.
+Try it now!

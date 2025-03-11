@@ -5,18 +5,14 @@ using Terraria.ModLoader.UI;
 
 namespace ModSideIcon.Common
 {
-    public class SideIconWithTooltip : UIImage
+    public class ImageIcon : UIImage
     {
         public string Tooltip { get; set; }
 
-        public SideIconWithTooltip(Asset<Texture2D> texture, string tooltip) : base(texture)
+        public ImageIcon(Texture2D texture, string tooltip) : base(texture)
         {
             Tooltip = tooltip;
-        }
-
-        public SideIconWithTooltip(Texture2D nonReloadingTexture, string tooltip) : base(nonReloadingTexture)
-        {
-            Tooltip = tooltip;
+            ImageScale = 0.8f;
         }
 
         protected override void DrawSelf(SpriteBatch spriteBatch)

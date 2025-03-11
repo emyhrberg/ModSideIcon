@@ -11,5 +11,25 @@ Configs: {
 			Label: Show Mod Side Name
 			Tooltip: ""
 		}
+
+		TextSize: {
+			Label: Text Size
+			Tooltip: ""
+		}
+
+		Position: {
+			Label: Position
+			Tooltip: ""
+		}
+
+		IconPosition: {
+			Label: Icon Position
+			Tooltip: ""
+		}
+
+		TextPosition: {
+			Label: Text Position
+			Tooltip: ""
+		}
 	}
 }

@@ -26,6 +26,7 @@ namespace ModSideIcon.Common
         // Add new textures here: they will be auto-loaded based on field name.
         public static Asset<Texture2D> BothIcon;
         public static Asset<Texture2D> ClientIcon;
+        public static Asset<Texture2D> ServerIcon;
 
         // This property just forces the static constructor to run.
         public static bool Initialized { get; } = true;
@@ -47,7 +48,7 @@ namespace ModSideIcon.Common
         private static Asset<Texture2D> PreloadAsset(string path)
         {
             string modName = typeof(Assets).Namespace.Split('.')[0];
-            return ModContent.Request<Texture2D>($"{modName}/Common/Assets/{path}", AssetRequestMode.AsyncLoad);
+            return ModContent.Request<Texture2D>($"{modName}/Assets/{path}", AssetRequestMode.AsyncLoad);
         }
     }
 }

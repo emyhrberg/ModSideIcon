@@ -23,12 +23,26 @@ namespace ModSideIcon.Common
 
         public override void Load()
         {
-            if (ModLoader.TryGetMod("ModFolder", out Mod mod))
+            if (ModLoader.TryGetMod("aConciseModList", out Mod mod))
             {
-                // Completely different UIModItem, implement different behaviour here
+                // Completely different UIConciseModItem, implement different behaviour here
                 return;
             }
+            else
+            {
+                // Vanilla UIModItem, implement behaviour here
+                CreateModItemHook();
+            }
+        }
 
+        public override void Unload()
+        {
+            _modItemInitializeHook?.Dispose();
+            _modItemInitializeHook = null;
+        }
+
+        private void CreateModItemHook()
+        {
             // Get the UIModItem type from the tModLoader assembly.
             Type modItemType = typeof(Main).Assembly.GetType("Terraria.ModLoader.UI.UIModItem");
             if (modItemType == null)
@@ -44,12 +58,6 @@ namespace ModSideIcon.Common
                 onInitializeMethod,
                 new Action<Action<UIPanel>, UIPanel>(UIModItem_OnInitialize)
             );
-        }
-
-        public override void Unload()
-        {
-            _modItemInitializeHook?.Dispose();
-            _modItemInitializeHook = null;
         }
 
         /// <summary>
@@ -96,6 +104,10 @@ namespace ModSideIcon.Common
                 // sideValue is the enum ModSide (Both, Client, Server, NoSync)
                 // Convert to string
                 string sideString = sideValue.ToString(); // e.g. "Both", "Client", etc.
+                if (sideString == "Both")
+                {
+                    sideString = "Server";
+                }
 
                 // Check config
                 Config c = ModContent.GetInstance<Config>();
@@ -104,7 +116,15 @@ namespace ModSideIcon.Common
                 if (c.ShowModSideName)
                 {
                     // if "both", move text -72, otherwise "client" -50
-                    float left = sideString == "Both" ? -72 : -50;
+                    // note: this was when both was two icons, now it's one icon
+                    // float left = sideString == "Both" ? -72 : -50;
+                    float left = -50;
+
+                    if (!c.ShowModSideIcon)
+                    {
+                        // If no icon, move text a bit more left
+                        left = -23;
+                    }
 
                     UIText sideText = new UIText(sideString)
                     {
@@ -113,7 +133,7 @@ namespace ModSideIcon.Common
                         // Position it however you want. For example, near the top-right corner:
                         HAlign = 1f,          // Align to the right
                         VAlign = 0f,          // Align to the top
-                        Top = { Pixels = 5f }, // Slight offset from top
+                        Top = { Pixels = 3 }, // No offset from the top edge
                         Left = { Pixels = left } // Slight offset from the right edge
                     };
                     self.Append(sideText);
@@ -124,16 +144,16 @@ namespace ModSideIcon.Common
                 {
                     Asset<Texture2D> sideIcon = sideString switch
                     {
-                        "Both" => Assets.BothIcon,
+                        "Server" => Assets.ServerIcon,
                         "Client" => Assets.ClientIcon,
                         _ => null
                     };
                     if (sideIcon != null)
                     {
-                        SideIconWithTooltip sideButton = new(sideIcon, sideString)
+                        ImageIcon sideButton = new(sideIcon.Value, sideString)
                         {
                             HAlign = 1f,
-                            Left = { Pixels = -22 },
+                            Left = { Pixels = -20 },
                         };
                         self.Append(sideButton);
                     }

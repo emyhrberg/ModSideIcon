@@ -1,0 +1,5 @@
+Possible things that could be done 2025-03-10:
+- Russian/chinese localization
+- Make icon opacity change on hovering a ModItem e.g 0.4 to 1.0
+- Clean up config UI, kinda a lot of clutter rn
+- Consider changing UICommonTooltip to MouseHoverItem

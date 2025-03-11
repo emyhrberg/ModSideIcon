@@ -91,13 +91,17 @@ namespace ModSideIcon.Common
                     imageIcon.VAlign = c.IconPosition.Y;
                     imageIcon.HAlign = c.IconPosition.X;
 
+                    // magic left offset extra
+                    imageIcon.Left.Set(pixels: 5f, precent: 0f);
+                    imageIcon.Top.Set(pixels: -5f, precent: 0f);
+
                     self.Append(imageIcon);
                 }
 
                 if (c.ShowModSideName)
                 {
                     UIText sideText = new(sideString, textScale: c.TextSize);
-                    sideText.Top.Set(4, 0f);
+                    // sideText.Top.Set(4, 0f);
                     sideText.HAlign = c.TextPosition.X;
                     sideText.VAlign = c.TextPosition.Y;
                     self.Append(sideText);

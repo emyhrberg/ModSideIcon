@@ -4,37 +4,47 @@ Configs: {
 
 		ShowModSideIcon: {
 			Label: Show Icon
-			Tooltip: ""
+			Tooltip: Shows a icon containing information about the mod side
 		}
 
 		ShowModSideName: {
 			Label: Show Text
-			Tooltip: ""
+			Tooltip: Shows a text containing information about the mod side
 		}
 
 		TextSize: {
 			Label: Text Size
-			Tooltip: ""
+			Tooltip: Size of the text
 		}
 
 		IconPosition: {
 			Label: Icon Position
-			Tooltip: ""
+			Tooltip: Default position is at top right
 		}
 
 		TextPosition: {
 			Label: Text Position
-			Tooltip: ""
+			Tooltip: Default position is at top center
 		}
 
 		IconGlow: {
 			Label: Icon Glow
-			Tooltip: ""
+			Tooltip: Shows a visual glow around the icons
 		}
 
 		Headers: {
-			Icon: "[i:ModSideIcon/BothItem] Icon"
+			Icon: "[i:ModSideIcon/ServerItem] [i:ModSideIcon/ClientItem] Icon"
 			Text: "[i:AlphabetStatueT][i:AlphabetStatueE][i:AlphabetStatueX][i:AlphabetStatueT] "
+		}
+
+		IconSize: {
+			Label: Icon Size
+			Tooltip: Size of the icon
+		}
+
+		Tooltip: {
+			Label: Tooltip
+			Tooltip: Shows a tooltip when hovering over the mod side icon
 		}
 	}
 }
@@ -42,6 +52,16 @@ Configs: {
 Items: {
 	BothItem: {
 		DisplayName: Both Item
+		Tooltip: ""
+	}
+
+	ClientItem: {
+		DisplayName: Client Item
+		Tooltip: ""
+	}
+
+	ServerItem: {
+		DisplayName: Server Item
 		Tooltip: ""
 	}
 }

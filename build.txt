@@ -1,6 +1,7 @@
-displayName = Show Mod Side Icon
+name=ModSideIcon
+displayName = Mod Side Icon
 author = Erky
-version = 0.2
+version = 0.3
 side = client
 hideCode = true
 buildIgnore = icon.psd, Assets\Old

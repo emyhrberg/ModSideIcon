@@ -85,6 +85,12 @@ namespace ModSideIcon.Common
                         };
                     }
 
+                    if (sideIcon == null)
+                    {
+                        ModContent.GetInstance<ModSideIcon>().Logger.Error($"Failed to load icon for side: {sideString}");
+                        return;
+                    }
+
                     ImageIcon imageIcon = new(sideIcon, sideString);
 
                     // set image position with config

@@ -33,8 +33,8 @@ Configs: {
 		}
 
 		Headers: {
-			Icon: "[i:ModSideIcon/ServerItem] [i:ModSideIcon/ClientItem] Icon"
-			Text: "[i:AlphabetStatueT][i:AlphabetStatueE][i:AlphabetStatueX][i:AlphabetStatueT] "
+			Icon: "Icon [i:ModSideIcon/ServerItem] [i:ModSideIcon/ClientItem] "
+			Text: Text
 		}
 
 		IconSize: {

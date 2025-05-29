@@ -1,3 +1,2 @@
-See if a mod is client or server-sided.
-Simple icons in your mods list make it clear.
-Try it now!
+You can now see which mods are client or server side in the mod browser. 
+Also supports Concise Mods List!

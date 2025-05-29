@@ -1,0 +1,14 @@
+[h1] Mod Side Icon [/h1]
+You can now see which mods are client or server side in the mod browser. 
+Easy, visual, and efficient!
+Also supports [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3001692619]Concise Mods List[/url]!
+
+[h2] Usage [/h2]
+The icon and text of the mod side for all mods shows up in the mod browser. You can customize the appearance, visibility and position of the icon and text in the config.
+
+[h2] Links [/h2]
+[list]
+[*] Source code hosted at [url=https://github.com/emyhrberg/ModSideIcon] GitHub [/url]
+[*] Got questions or suggestions? Join us at [url=https://discord.com/invite/JNFYABQM] Discord [/url]
+[*] Wish to support my mod development? You can do so at [url=https://ko-fi.com/erkyy] Ko-Fi [/url]
+[/list]
